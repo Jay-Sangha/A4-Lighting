@@ -1,12 +1,93 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Parcel Sandbox</title>
+    <title>Blocky3D — Phong Lighting</title>
     <meta charset="UTF-8" />
   </head>
 
   <body>
-    <canvas id="webgl" width="400" height="400" />
+    <div id="app">
+      <canvas id="webgl" width="640" height="640"></canvas>
+
+      <div id="ui">
+        <h2>Camera</h2>
+        <div class="row">
+          <label>Orbit Y <input id="camYaw" type="range" min="-180" max="180" value="25" /></label>
+          <span id="camYawVal">25</span>
+        </div>
+        <div class="row">
+          <label>Orbit X <input id="camPitch" type="range" min="-89" max="89" value="18" /></label>
+          <span id="camPitchVal">18</span>
+        </div>
+        <div class="row">
+          <label>Distance <input id="camDist" type="range" min="4" max="20" value="10" step="0.1" /></label>
+          <span id="camDistVal">10</span>
+        </div>
+        <p class="hint">Keys: WASD orbit, Q/E zoom</p>
+
+        <h2>Point light</h2>
+        <div class="row">
+          <label>X <input id="ptX" type="range" min="-6" max="6" value="3" step="0.1" /></label>
+          <span id="ptXVal">3</span>
+        </div>
+        <div class="row">
+          <label>Y <input id="ptY" type="range" min="0" max="6" value="2.5" step="0.1" /></label>
+          <span id="ptYVal">2.5</span>
+        </div>
+        <div class="row">
+          <label>Z <input id="ptZ" type="range" min="-6" max="6" value="2" step="0.1" /></label>
+          <span id="ptZVal">2</span>
+        </div>
+        <div class="row">
+          <label>Light R <input id="lightR" type="range" min="0" max="100" value="100" /></label>
+          <span id="lightRVal">100</span>
+        </div>
+        <div class="row">
+          <label>Light G <input id="lightG" type="range" min="0" max="100" value="95" /></label>
+          <span id="lightGVal">95</span>
+        </div>
+        <div class="row">
+          <label>Light B <input id="lightB" type="range" min="0" max="100" value="85" /></label>
+          <span id="lightBVal">85</span>
+        </div>
+        <div class="row">
+          <label><input id="animateLight" type="checkbox" checked /> Animate point light</label>
+        </div>
+        <div class="row">
+          <button id="togglePoint">Point light: ON</button>
+        </div>
+
+        <h2>Spot light</h2>
+        <div class="row">
+          <label>X <input id="spX" type="range" min="-6" max="6" value="-2" step="0.1" /></label>
+          <span id="spXVal">-2</span>
+        </div>
+        <div class="row">
+          <label>Y <input id="spY" type="range" min="1" max="8" value="5" step="0.1" /></label>
+          <span id="spYVal">5</span>
+        </div>
+        <div class="row">
+          <label>Z <input id="spZ" type="range" min="-6" max="6" value="1" step="0.1" /></label>
+          <span id="spZVal">1</span>
+        </div>
+        <div class="row">
+          <label>Cutoff° <input id="spotCut" type="range" min="5" max="60" value="22" /></label>
+          <span id="spotCutVal">22</span>
+        </div>
+        <div class="row">
+          <button id="toggleSpot">Spot light: ON</button>
+        </div>
+
+        <h2>Shading</h2>
+        <div class="row">
+          <button id="toggleLighting">Lighting: ON</button>
+          <button id="toggleNormals">Normal viz: OFF</button>
+        </div>
+        <div class="row">
+          <span id="fps">FPS: --</span>
+        </div>
+      </div>
+    </div>
 
     <script src="src/index.js"></script>
   </body>
